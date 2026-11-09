@@ -5,57 +5,71 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mana spēle</title>
 <style>
+/* Pamata izkārtojums — šīs rindas nemaini */
 body { font-family: Arial, sans-serif; max-width: 680px; margin: 24px auto; padding: 16px; line-height: 1.6; }
-button, input { font: inherit; padding: 10px; margin: 4px; }
-button { cursor: pointer; }
-img { max-width: 100%; height: auto; }
+button, input { font: inherit; padding: 10px 16px; margin: 6px 0; cursor: pointer; }
+img, audio { max-width: 100%; }
 [hidden] { display: none !important; }
 
+/* NOFORMĒ ŠEIT: pielieto 2.1. un 2.2. nodarbībā apgūto CSS */
+body {
+  background-color: #12c2f8;
+  color: #4d68fd;
+}
+
+h1 {
+  color: #fff349;
+}
+
+.noteikumi {
+  background-color: #ec29e3;
+  color: #3afaf0;
+  padding: 12px;
+}
+
+.laukums {
+  width: 360px;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 100%;
+  text-align: center;
+  border: 2px solid #1302ff;
+  background-color: #b9d2eb;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #82ffee;
+  color: #ff9595;
+  border: 0;
+  border-radius: 8px;
+}
 </style>
 </head>
 <body>
-<header>
-  <h1>uno duos</h1>
-</header>
-<main>
-  <p>vinnē draugus kārtīs</p>
-  <ul>
-    <li>spēlē uno kārtis līdz kāds vinnē iztērējot visas savas kārtis.</li>
-    <li>maini savas kārtis otrādāk.</li>
-  </ul>
-</main>
-<footer>
-  <p>Spēle datorikas stundai.</p>
-</footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="lv">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mana spēle</title>
-<style>
-body { font-family: Arial, sans-serif; max-width: 680px; margin: 24px auto; padding: 16px; line-height: 1.6; }
-button, input { font: inherit; padding: 10px; margin: 4px; }
-button { cursor: pointer; }
-img { max-width: 100%; height: auto; }
-[hidden] { display: none !important; }
-
-</style>
-</head>
-<body>
-<h1>Divi spēles pogas varianti.</h1>
-<section>
-  <h2>A variants</h2>
-  <button onclick="document.getElementById('atbilde').textContent='Spēle sākta!'">Spied šeit</button>
+<h1>Spēles nosaukums</h1>
+<p>Īss spēles mērķa apraksts spēlētājam.</p>
+<section class="noteikumi">
+  <h2>Noteikumi</h2>
+  <p>spēlētājs izliek kārtis kuras vinam nav vajadzīgas</p>
+  <p>izskan uzvaras mūzika kad spēlētajs uzspiež uzvaras pogu.</p>
 </section>
-<section>
-  <h2>B variants</h2>
-  <button onclick="document.getElementById('atbilde').textContent='Spēle sākta!'">Sākt spēli</button>
-</section>
-<p id="atbilde">Izmēģini abas pogas.</p>
-<h2>uno trio</h2>
-<p>Manai spēlei būs poga:</p>
+<div class="laukums">
+  <h2>Spēles laukums</h2>
+  <img src="atteli/varonis.svg" alt="Spēles varonis" width="128">
+  <p>Skaņas efekta nozīme spēlē:</p>
+  <audio controls src="skanas/klikskis.wav"></audio>
+  <p id="punkti">Punkti: 0</p>
+  <button onclick="savakt()">Savākt punktu</button>
+</div>
+<script>
+// Gatava punktu poga — šo skriptu nemaini.
+let punkti = 0;
+function savakt() {
+  punkti = punkti + 1;
+  document.getElementById("punkti").textContent = "Punkti: " + punkti;
+}
+</script>
 </body>
 </html>
